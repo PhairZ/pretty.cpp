@@ -1,13 +1,13 @@
-#+TITLE:Pretty C: ✨Pretty✨ Scripting on Top of C
+#+TITLE:Pretty C++: ✨Pretty✨ Scripting on Top of C++ (Forked from pretty.c)
 
-Pretty C is a new scripting language compatible with C. Pretty C
+Pretty C++ is a new scripting language compatible with C++. Pretty C++
 boosts your programs with dynamic typing, generic iteration, resource
-tracking and other niceties. And it's backwards-compatible with C and
+tracking and other niceties. And it's backwards-compatible with C++ and
 all of its libraries! Inspired by Lua, Python, JavaScript, and
 Lisp. Here's how a naive re-implementation of ~head~ utility might
-look like with Pretty C:
+look like with Pretty C++:
 
-#+begin_src C
+#+begin_src C++
   #include "pretty.h"
 
   int main (int argc, string argv[])
@@ -25,39 +25,33 @@ look like with Pretty C:
   }
 #+end_src
 
-The goals for Pretty C are:
-- Provide so much syntactic sugar as to cause any C developer a
+The goals for Pretty C++ are:
+- Provide so much syntactic sugar as to cause any C++ developer a
   diabetes-induced heart attack.
 - Deprecate Lua, Python, JavaScript, Ruby and a dozen other languages,
-  because Pretty C is the ultimate scripting language, but
+  because Pretty C++ is the ultimate scripting language, but
   lightning-fast and strongly typed!
-- Including only one header (yes, Pretty C is a header-only library
-  ~#include~-able from arbitrary C file!)  to turn any codebase into a
+- Including only one header (yes, Pretty C++ is a header-only library
+  ~#include~-able from arbitrary C++ file!)  to turn any codebase into a
   beginner friendly one.
 
 * Getting Started
 Checkout the repository
 #+begin_src sh
-  git clone https://github.com/aartaka/pretty.c
+  git clone https://github.com/aartaka/pretty.cpp
 #+end_src
 
-Or simply copy the ~pretty.h~ file—Pretty C is a header-only
+Or simply copy the ~pretty.h~ file—Pretty C++ is a header-only
 library, so you can
 #+begin_src C
   #include "pretty.h"
 #+end_src
 from any file in the directory you drop ~pretty.h~ to. Or from any
-file really, if you specify the path to Pretty C as an include (~-I~)
+file really, if you specify the path to Pretty C++ as an include (~-I~)
 path.
 
 * Provided Conveniences
-Here are all the pretty changes making C hip again.
-
-** Included Standard Headers
-- [[https://en.cppreference.com/w/c/types/boolean][stdbool.h]] for pretty booleans: ~true~, ~false~, and ~bool~.
-- [[https://en.cppreference.com/w/c/types/integer][stdint.h]] for fixed-width integer types like ~uint64_t~.
-- [[https://en.cppreference.com/w/c/language/operator_alternative#Operator_macros.28C95.29][iso646.h]] for readable alternatives to regular operators,
-  including ~and~ for ~&&~ and ~or~ for ~||~. Neat!
+Here are all the Pretty changes making C hip again.
 
 ** Simple macros
 Everyone defines these, so why not provide them?
@@ -96,7 +90,7 @@ Mainly modeled after Lua and Lisp:
 - ~repeat~ from Lua as an alias for ~do~.
 - ~done~/~finish~ and ~pass~ as aliases for ~break~ and ~continue~, respectively.
 - ~always~, ~forever~, ~loop~, and ~indefinitely~ so that you can make infinite (event? server?) loops
-#+begin_src C
+#+begin_src C++
   always println("After all this time?");
 #+end_src
 - and ~never~ and ~comment~ to comment out some code with just one
@@ -114,7 +108,7 @@ Yes, you can do
   local at = asctime(lt);
   println(at);
 #+end_src
-With Pretty C.
+With Pretty C++.
 
 ** Generic printing (C11+)
 ~print~ prints whatever you feed it. ~println~ adds a newline after it.
@@ -287,7 +281,7 @@ might need to coerce it to your type before using it.
 *** ~defer (...)~
 Offloads the code to be executed after the following block. Not at the
 end of function as in Go, because that's +impossible+ hard to
-implement in C. Still, Pretty C ~defer~ is useful enough.
+implement in C. Still, Pretty C++ ~defer~ is useful enough.
 
 *** ~try~ and ~catch~
 Fancy error handling, now in C. Refactored example from [[https://en.cppreference.com/w/c/error/errno][errno reference]]:
@@ -300,7 +294,7 @@ Fancy error handling, now in C. Refactored example from [[https://en.cppreferenc
           println("Math error!");
 #+end_src
 
-~NOERR~ and ~NOERROR~ are also provided by Pretty C, for convenience
+~NOERR~ and ~NOERROR~ are also provided by Pretty C++, for convenience
 of error switch-casing.
 
 * Contributing
